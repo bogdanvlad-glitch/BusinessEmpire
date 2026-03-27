@@ -1,0 +1,251 @@
+import { Image } from 'react-native';
+
+export const TAB_META = [
+  { key: 'dashboard', label: 'Vue', imageKey: 'dashboard', actionLabel: 'Brief stratégique' },
+  { key: 'business', label: 'Business', imageKey: 'retail', actionLabel: 'Promotion éclair' },
+  { key: 'realEstate', label: 'Immobilier', imageKey: 'residential', actionLabel: 'Closing premium' },
+  { key: 'markets', label: 'Marchés', imageKey: 'stocks', actionLabel: 'Scan des marchés' },
+  { key: 'luxury', label: 'Luxe', imageKey: 'luxury', actionLabel: 'Vente privée' },
+  { key: 'profile', label: 'Profil', imageKey: 'profile', actionLabel: 'Plan de croissance' },
+];
+
+export const IMAGE_SOURCES = {
+  dashboard: require('../assets/images/dashboard.png'),
+  retail: require('../assets/images/retail.png'),
+  food: require('../assets/images/food.png'),
+  fitness: require('../assets/images/fitness.png'),
+  tech: require('../assets/images/tech.png'),
+  finance: require('../assets/images/finance.png'),
+  industry: require('../assets/images/industry.png'),
+  residential: require('../assets/images/residential.png'),
+  commercial: require('../assets/images/commercial.png'),
+  prestige: require('../assets/images/prestige.png'),
+  stocks: require('../assets/images/stocks.png'),
+  crypto: require('../assets/images/crypto.png'),
+  luxury: require('../assets/images/luxury.png'),
+  watches: require('../assets/images/watches.png'),
+  cars: require('../assets/images/cars.png'),
+  yachts: require('../assets/images/yachts.png'),
+  jets: require('../assets/images/jets.png'),
+  art: require('../assets/images/art.png'),
+  jewelry: require('../assets/images/jewelry.png'),
+  collections: require('../assets/images/collections.png'),
+  profile: require('../assets/images/profile.png'),
+};
+
+const BUSINESS_ROWS = [
+  ['retail-kiosk', 'Retail', 'retail', 'Kiosque urbain', 'Point de vente ultra accessible pour lancer la machine.', 1800, 68, 4, 1400, 1],
+  ['retail-convenience', 'Retail', 'retail', 'Supérette de quartier', 'Flux stable de clients et marges propres.', 6500, 190, 5, 4200, 3],
+  ['retail-electronics', 'Retail', 'retail', 'Magasin électronique', 'Ticket moyen plus élevé et upsells efficaces.', 28000, 780, 8, 14000, 6],
+  ['retail-fashion', 'Retail', 'retail', 'Boutique mode', 'Rotation rapide avec bonus de réputation.', 86000, 2400, 10, 32000, 8],
+  ['retail-hyper', 'Retail', 'retail', 'Hypermarché', 'Structure lourde mais cashflow massif.', 280000, 9200, 14, 105000, 18],
+  ['retail-premium', 'Retail', 'retail', 'Concept store premium', 'Volumes plus faibles, marges très fortes.', 860000, 32500, 18, 255000, 22],
+
+  ['food-cart', 'Food', 'food', 'Food cart', 'Rapide à rentabiliser, parfait pour le démarrage.', 2400, 85, 4, 1600, 1],
+  ['food-cafe', 'Food', 'food', 'Café signature', 'Bon mix entre débit et image de marque.', 12000, 320, 6, 5200, 4],
+  ['food-fastfood', 'Food', 'food', 'Fast-food', 'Débit élevé avec opérations répétables.', 54000, 1450, 8, 18800, 10],
+  ['food-restaurant', 'Food', 'food', 'Restaurant', 'Rendement solide avec amélioration du service.', 165000, 4800, 12, 56000, 16],
+  ['food-fine', 'Food', 'food', 'Restaurant gastronomique', 'Montée en gamme, forte réputation.', 520000, 15500, 16, 170000, 24],
+  ['food-chain', 'Food', 'food', 'Chaîne premium', 'Multiplication de revenus sur plusieurs zones.', 1450000, 46800, 22, 420000, 34],
+
+  ['fitness-gym', 'Fitness', 'fitness', 'Salle locale', 'Abonnements récurrents et coûts modérés.', 9000, 260, 7, 3800, 5],
+  ['fitness-club', 'Fitness', 'fitness', 'Club fitness', 'Meilleur panier moyen et fidélisation.', 38000, 1080, 8, 12000, 8],
+  ['fitness-performance', 'Fitness', 'fitness', 'Centre performance', 'Clients premium et programmes personnalisés.', 138000, 3650, 11, 49000, 14],
+  ['fitness-network', 'Fitness', 'fitness', 'Réseau de clubs', 'Scaling national avec procédures standardisées.', 610000, 17600, 15, 205000, 26],
+  ['fitness-wellness', 'Fitness', 'fitness', 'Wellness luxe', 'Réputation élevée et prestations haut de gamme.', 1780000, 51200, 20, 520000, 40],
+
+  ['tech-repair', 'Tech', 'tech', 'Atelier réparation', 'Cash rapide et bouche-à-oreille efficace.', 13000, 350, 5, 5200, 3],
+  ['tech-studio', 'Tech', 'tech', 'Studio app mobile', 'Produit scalable dès que les releases s’enchaînent.', 78000, 1800, 7, 26000, 9],
+  ['tech-saas', 'Tech', 'tech', 'SaaS B2B', 'MRR qui s’emballe une fois la traction trouvée.', 280000, 7200, 9, 98000, 15],
+  ['tech-cloud', 'Tech', 'tech', 'Hébergeur cloud', 'Infrastructures lourdes, rétention forte.', 950000, 26500, 12, 340000, 22],
+  ['tech-ai', 'Tech', 'tech', 'Lab IA / robotique', 'Boost énorme sur la fin de partie.', 2800000, 86500, 18, 860000, 36],
+  ['tech-group', 'Tech', 'tech', 'Groupe tech', 'Portefeuille produits, acquisitions et IP.', 7500000, 235000, 25, 2200000, 48],
+
+  ['finance-loan', 'Finance', 'finance', 'Bureau de prêt', 'Rendement simple avec cycles courts.', 22000, 620, 6, 7600, 4],
+  ['finance-credit', 'Finance', 'finance', 'Agence de crédit', 'Ticket moyen en hausse et meilleurs taux.', 98000, 2480, 8, 28000, 9],
+  ['finance-broker', 'Finance', 'finance', 'Courtier', 'Effet réseau et commissions en cascade.', 420000, 10500, 10, 128000, 14],
+  ['finance-private', 'Finance', 'finance', 'Banque privée', 'Clientèle premium, revenus très stables.', 1380000, 38000, 14, 420000, 26],
+  ['finance-investment', 'Finance', 'finance', 'Banque d’investissement', 'Deals massifs et prestige élevé.', 4600000, 125000, 20, 1350000, 40],
+
+  ['industry-dealer', 'Industry', 'industry', 'Concession auto premium', 'Ventes à forte marge et packs services.', 160000, 4200, 9, 58000, 12],
+  ['industry-fashion', 'Industry', 'industry', 'Marque mode', 'Notoriété et collections limitées.', 620000, 16000, 12, 195000, 18],
+  ['industry-jewelry', 'Industry', 'industry', 'Maison joaillière', 'Ticket moyen élevé et clientèle fidèle.', 1800000, 46200, 16, 560000, 24],
+  ['industry-aviation', 'Industry', 'industry', 'Aviation privée', 'Peu de deals, mais très lucratifs.', 6200000, 146000, 22, 1950000, 30],
+  ['industry-conglomerate', 'Industry', 'industry', 'Conglomérat', 'Actif final pour dominer le classement local.', 16000000, 420000, 28, 4200000, 60],
+];
+
+export const BUSINESSES = BUSINESS_ROWS.map((row, index) => ({
+  id: row[0],
+  sector: row[1],
+  imageKey: row[2],
+  name: row[3],
+  description: row[4],
+  price: row[5],
+  baseIncome: row[6],
+  cycleSeconds: row[7],
+  upgradeBaseCost: row[8],
+  employees: row[9],
+  efficiency: 1 + index * 0.015,
+  reputation: 1 + index * 0.01,
+}));
+
+const PROPERTY_ROWS = [
+  ['home-studio', 'Résidentiel', 'residential', 'Studio centre-ville', 'Petit ticket, excellent pour démarrer les loyers.', 22000, 170, 18, 0.91, 1800, 0.18, 'Commun'],
+  ['home-apartment', 'Résidentiel', 'residential', 'Petit appartement', 'Bien de base avec turnover modéré.', 54000, 360, 22, 0.92, 4200, 0.2, 'Commun'],
+  ['home-loft', 'Résidentiel', 'residential', 'Loft urbain', 'Profil premium et rotation plus lente.', 125000, 780, 26, 9000, 0.23, 'Peu commun'],
+  ['home-duplex', 'Résidentiel', 'residential', 'Duplex design', 'Très bon ratio prestige / rendement.', 260000, 1550, 28, 16000, 0.25, 'Peu commun'],
+  ['home-penthouse', 'Résidentiel', 'residential', 'Penthouse', 'Actif rare avec loyers puissants.', 680000, 4200, 34, 32000, 0.28, 'Rare'],
+  ['home-villa-modern', 'Résidentiel', 'residential', 'Villa moderne', 'Recherche forte dans les quartiers premium.', 1250000, 6800, 38, 48000, 0.3, 'Rare'],
+  ['home-villa-sea', 'Résidentiel', 'residential', 'Villa bord de mer', 'Pic d’occupation sur saison haute.', 1980000, 11200, 42, 62000, 0.32, 'Épique'],
+  ['home-chalet', 'Résidentiel', 'residential', 'Chalet luxe', 'Rendement stable avec surcote prestige.', 2760000, 15400, 44, 78000, 0.33, 'Épique'],
+  ['home-manor', 'Résidentiel', 'residential', 'Manoir', 'Très gros actif, booste la valeur nette.', 4600000, 24800, 48, 112000, 0.35, 'Légendaire'],
+  ['home-estate', 'Résidentiel', 'residential', 'Domaine privé', 'Résidence ultime, loyers et prestige massifs.', 9200000, 46500, 54, 180000, 0.38, 'Légendaire'],
+
+  ['biz-local', 'Commercial', 'commercial', 'Petit local', 'Petit actif commercial très flexible.', 95000, 720, 20, 7200, 0.9, 'Commun'],
+  ['biz-boutique', 'Commercial', 'commercial', 'Boutique premium', 'Loyer élevé avec clientèle ciblée.', 240000, 1680, 24, 12000, 0.92, 'Peu commun'],
+  ['biz-office', 'Commercial', 'commercial', 'Immeuble de bureaux', 'Stable, bonne diversification.', 840000, 5600, 32, 32000, 0.94, 'Rare'],
+  ['biz-coworking', 'Commercial', 'commercial', 'Hub coworking', 'Montée rapide si rénové intelligemment.', 1250000, 7900, 34, 42000, 0.95, 'Rare'],
+  ['biz-mall', 'Commercial', 'commercial', 'Centre commercial', 'Flux très élevé et fort effet quartier.', 3800000, 22800, 42, 92000, 0.96, 'Épique'],
+  ['biz-hotel', 'Commercial', 'commercial', 'Hôtel business', 'Réagit bien aux boosts de réputation.', 5400000, 31500, 44, 110000, 0.94, 'Épique'],
+  ['biz-resort', 'Commercial', 'commercial', 'Resort', 'Pic de performance sur longues périodes.', 8800000, 46800, 50, 158000, 0.95, 'Légendaire'],
+  ['biz-tower', 'Commercial', 'commercial', 'Tour mixte', 'Monstre de cashflow en fin de partie.', 14500000, 73500, 58, 220000, 0.97, 'Légendaire'],
+
+  ['prestige-island', 'Prestige', 'prestige', 'Île privée', 'Actif prestige par excellence.', 22000000, 102000, 70, 250000, 0.88, 'Mythique'],
+  ['prestige-marina', 'Prestige', 'prestige', 'Marina', 'Revenus premium et bonus de réputation.', 18500000, 86000, 64, 220000, 0.91, 'Mythique'],
+  ['prestige-palace', 'Prestige', 'prestige', 'Palais urbain', 'Valeur de revente très forte.', 26000000, 124000, 74, 280000, 0.92, 'Mythique'],
+  ['prestige-ultra', 'Prestige', 'prestige', 'Résidence ultra-luxe', 'Dernier palier immobilier offline.', 34000000, 168000, 80, 320000, 0.94, 'Mythique'],
+];
+
+export const PROPERTIES = PROPERTY_ROWS.map((row, index) => ({
+  id: row[0],
+  segment: row[1],
+  imageKey: row[2],
+  name: row[3],
+  description: row[4],
+  price: row[5],
+  rent: row[6],
+  maintenance: row[7],
+  occupancy: row[8],
+  resaleBase: row[5] * (0.86 + index * 0.004),
+  renovationPotential: row[9],
+  rarity: row[10],
+}));
+
+const STOCK_ROWS = [
+  ['NVX', 'Novaxis Systems', 'Tech', 132, 0.015, 0.0008, 0.011],
+  ['QTR', 'Quantum Rail', 'Industry', 88, 0.013, 0.0005, 0.018],
+  ['BLU', 'Blue Harbor Logistics', 'Transport', 46, 0.011, 0.0006, 0.022],
+  ['MTR', 'MetroRise Realty', 'Real Estate', 74, 0.01, 0.0005, 0.028],
+  ['GLD', 'Goldcrest Retail', 'Retail', 56, 0.012, 0.0004, 0.019],
+  ['FRM', 'Farmora Foods', 'Food', 64, 0.01, 0.00045, 0.024],
+  ['AEX', 'Aether Energy', 'Energy', 104, 0.017, 0.0007, 0.016],
+  ['SYN', 'SynerBank Group', 'Finance', 126, 0.014, 0.0005, 0.026],
+  ['LYT', 'Lynx Telecom', 'Telecom', 92, 0.012, 0.0004, 0.021],
+  ['PRM', 'PrimeMed Health', 'Health', 118, 0.013, 0.0005, 0.017],
+  ['AVA', 'Avanta Materials', 'Materials', 71, 0.016, 0.00055, 0.019],
+  ['SOL', 'Solar Crest', 'Energy', 59, 0.018, 0.00075, 0.0],
+  ['CND', 'Cinder Games', 'Entertainment', 43, 0.02, 0.0009, 0.0],
+  ['AUR', 'Aurora Mobility', 'Auto', 78, 0.019, 0.00085, 0.0],
+  ['VRD', 'Verdant Water', 'Utilities', 66, 0.009, 0.00035, 0.03],
+  ['KST', 'Keystone Apparel', 'Fashion', 38, 0.014, 0.0006, 0.012],
+  ['TID', 'Tidal Ports', 'Infrastructure', 96, 0.011, 0.00045, 0.025],
+  ['ORB', 'Orbit Media', 'Media', 51, 0.017, 0.00065, 0.008],
+  ['GRN', 'Greenforge Homes', 'Construction', 82, 0.013, 0.00055, 0.02],
+  ['MNX', 'Minerva Robotics', 'Tech', 149, 0.022, 0.001, 0.0],
+];
+
+const CRYPTO_ROWS = [
+  ['LNX', 'Lynx Coin', 4.4, 0.06, 0.0015],
+  ['KAI', 'Kaizen Chain', 12.8, 0.052, 0.0012],
+  ['ORB', 'Orbit Token', 1.6, 0.072, 0.0019],
+  ['NVA', 'Nova Mint', 23, 0.058, 0.0014],
+  ['ARC', 'Arcadium', 9.7, 0.049, 0.0011],
+  ['TIT', 'Titan Mesh', 31, 0.064, 0.0018],
+  ['PXR', 'Pixel Vault', 0.88, 0.08, 0.0022],
+  ['ZEN', 'Zenith Cash', 6.5, 0.055, 0.0013],
+  ['RIFT', 'Rift Ledger', 17, 0.061, 0.0017],
+  ['GLXY', 'Galaxy Byte', 28, 0.067, 0.0021],
+  ['WAVE', 'Wave Protocol', 2.8, 0.074, 0.0023],
+  ['ONYX', 'Onyx Proof', 14.6, 0.051, 0.00125],
+];
+
+export const MARKETS = [
+  ...STOCK_ROWS.map((row) => ({
+    id: `stock-${row[0].toLowerCase()}`,
+    symbol: row[0],
+    name: row[1],
+    type: 'stock',
+    sector: row[2],
+    basePrice: row[3],
+    volatility: row[4],
+    drift: row[5],
+    dividendYield: row[6],
+    imageKey: 'stocks',
+  })),
+  ...CRYPTO_ROWS.map((row) => ({
+    id: `crypto-${row[0].toLowerCase()}`,
+    symbol: row[0],
+    name: row[1],
+    type: 'crypto',
+    sector: 'Blockchain',
+    basePrice: row[2],
+    volatility: row[3],
+    drift: row[4],
+    dividendYield: 0,
+    imageKey: 'crypto',
+  })),
+];
+
+const LUXURY_ROWS = [
+  ['lux-watch-1', 'Montres', 'watches', 'Chrono acier', 'ActionReward', 0.05, 42000, 'Améliore les gains des actions actives.'],
+  ['lux-watch-2', 'Montres', 'watches', 'Tourbillon signature', 'ActionReward', 0.08, 185000, 'Accélère la montée en puissance manuelle.'],
+  ['lux-car-1', 'Voitures', 'cars', 'GT sport', 'PassiveIncome', 0.03, 220000, 'Augmente légèrement le cashflow global.'],
+  ['lux-car-2', 'Voitures', 'cars', 'Limousine exécutive', 'Prestige', 120, 780000, 'Monte fortement le prestige.'],
+  ['lux-car-3', 'Voitures', 'cars', 'Hypercar carbone', 'ActionReward', 0.12, 2200000, 'Action bar plus rentable.'],
+  ['lux-yacht-1', 'Yachts', 'yachts', 'Yacht 24m', 'PassiveIncome', 0.05, 1850000, 'Symbolise un empire qui décolle.'],
+  ['lux-yacht-2', 'Yachts', 'yachts', 'Yacht océanique', 'Prestige', 260, 6200000, 'Prestige massif et aura premium.'],
+  ['lux-jet-1', 'Jets', 'jets', 'Jet léger', 'MarketEdge', 0.04, 3600000, 'Réduit légèrement l’impact des krachs.'],
+  ['lux-jet-2', 'Jets', 'jets', 'Jet long-courrier', 'MarketEdge', 0.07, 11800000, 'Bonifie les ventes au bon timing.'],
+  ['lux-art-1', 'Art', 'art', 'Triptyque contemporain', 'Prestige', 60, 150000, 'Ajoute du prestige pur.'],
+  ['lux-art-2', 'Art', 'art', 'Sculpture monumentale', 'Prestige', 140, 520000, 'Hausse de prestige plus nette.'],
+  ['lux-jewel-1', 'Bijoux', 'jewelry', 'Set diamants', 'PassiveIncome', 0.025, 410000, 'Cashflow légèrement amélioré.'],
+  ['lux-jewel-2', 'Bijoux', 'jewelry', 'Collection haute joaillerie', 'Prestige', 180, 1480000, 'Prestige premium.'],
+  ['lux-collection-1', 'Collections', 'collections', 'Voûte de collectibles', 'ActionDuration', 0.06, 780000, 'Réduit le temps des actions actives.'],
+  ['lux-collection-2', 'Collections', 'collections', 'Archive exclusive', 'ActionDuration', 0.09, 2400000, 'Réduit encore le temps d’action.'],
+  ['lux-collection-3', 'Collections', 'collections', 'Cabinet d’objets rares', 'PassiveIncome', 0.04, 3200000, 'Ajoute une couche de prestige rentable.'],
+];
+
+export const LUXURY_ITEMS = LUXURY_ROWS.map((row) => ({
+  id: row[0],
+  category: row[1],
+  imageKey: row[2],
+  name: row[3],
+  bonusType: row[4],
+  bonusValue: row[5],
+  price: row[6],
+  description: row[7],
+}));
+
+export const MISSION_DEFS = [
+  { id: 'm-1', title: 'Premier business', description: 'Achetez un premier business.', type: 'businessOwned', target: 1, rewardCash: 3000, rewardXp: 55 },
+  { id: 'm-2', title: 'Mini portefeuille', description: 'Possédez 3 businesses.', type: 'businessOwned', target: 3, rewardCash: 12000, rewardXp: 90 },
+  { id: 'm-3', title: 'Premier bien', description: 'Achetez un bien immobilier.', type: 'propertyOwned', target: 1, rewardCash: 18000, rewardXp: 100 },
+  { id: 'm-4', title: 'Premier trade', description: 'Achetez un actif de marché.', type: 'marketOwned', target: 1, rewardCash: 9000, rewardXp: 70 },
+  { id: 'm-5', title: 'Prestige lancé', description: 'Achetez un actif luxe.', type: 'luxuryOwned', target: 1, rewardCash: 48000, rewardXp: 140 },
+  { id: 'm-6', title: 'Réseau solide', description: 'Atteignez 1 M de valeur nette.', type: 'netWorth', target: 1000000, rewardCash: 120000, rewardXp: 180 },
+  { id: 'm-7', title: 'Automatisation', description: 'Automatisez 3 businesses.', type: 'automatedBusiness', target: 3, rewardCash: 160000, rewardXp: 220 },
+  { id: 'm-8', title: 'Foncière montante', description: 'Possédez 5 biens.', type: 'propertyOwned', target: 5, rewardCash: 350000, rewardXp: 320 },
+  { id: 'm-9', title: 'Marchés actifs', description: 'Possédez 6 actifs de marché.', type: 'marketOwned', target: 6, rewardCash: 220000, rewardXp: 260 },
+  { id: 'm-10', title: 'Premier milliardaire local', description: 'Atteignez 1 B de valeur nette.', type: 'netWorth', target: 1000000000, rewardCash: 25000000, rewardXp: 1200 },
+];
+
+export const DAILY_TEMPLATES = [
+  { id: 'd-1', title: 'Acheter 1 business', type: 'businessOwnedDelta', target: 1, rewardCash: 8500, rewardXp: 40 },
+  { id: 'd-2', title: 'Acheter 1 propriété', type: 'propertyOwnedDelta', target: 1, rewardCash: 12000, rewardXp: 55 },
+  { id: 'd-3', title: 'Lancer 5 actions', type: 'manualActionsDelta', target: 5, rewardCash: 7500, rewardXp: 30 },
+  { id: 'd-4', title: 'Investir en bourse', type: 'marketBuyDelta', target: 2, rewardCash: 9600, rewardXp: 36 },
+  { id: 'd-5', title: 'Dépenser en luxe', type: 'luxuryOwnedDelta', target: 1, rewardCash: 16500, rewardXp: 60 },
+  { id: 'd-6', title: 'Gagner 50k', type: 'totalEarnedDelta', target: 50000, rewardCash: 14000, rewardXp: 48 },
+  { id: 'd-7', title: 'Monter 2 upgrades business', type: 'businessUpgradeDelta', target: 2, rewardCash: 11000, rewardXp: 45 },
+  { id: 'd-8', title: 'Rénover 1 bien', type: 'propertyUpgradeDelta', target: 1, rewardCash: 13000, rewardXp: 52 },
+];
